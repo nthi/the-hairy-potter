@@ -3,6 +3,7 @@ import { makePottery } from './PotteryWheel.js'
 import { firePottery } from './Kiln.js'
 import { toSellOrNotToSell } from './PotteryCatalog.js'
 import { usePottery } from './PotteryCatalog.js'
+import { PotteryList } from './PotteryList.js'
 
 // Make 5 pieces of pottery at the wheel
 let mug = makePottery("mug", 5, 4)
@@ -36,11 +37,26 @@ toSellOrNotToSell(firedStein)
 toSellOrNotToSell(firedVase)
 toSellOrNotToSell(firedBowl)
 let sellList = usePottery()
-console.log(sellList)
+//console.log(sellList)
+
 
 
 
 // Invoke the component function that renders the HTML list
+//const listForHTML = PotteryList()
+const parentHTMLElement = document.querySelector(".potteryList")
+parentHTMLElement.innerHTML = PotteryList()
+
+/*
+
+    //What is the CSS selector for the element where you
+    //want to display the fish?
+
+    //Use . for elements with a "class" attribute
+    //Use # for elements with an "id" attribute
+ 
+    const parentHTMLElement = document.querySelector(".fish")
 
 
-
+    parentHTMLElement.innerHTML = fishlist()
+*/

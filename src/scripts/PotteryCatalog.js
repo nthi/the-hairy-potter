@@ -5,11 +5,19 @@ const potteryToSell = []
 
 // Define and export a function named toSellOrNotToSell that is responsible for determining if a piece of pottery should be sold.
 export const toSellOrNotToSell = (firedPotteryObject) => {
-    if (firedPotteryObject.weight >= 6) {
+    //this is failing the test "piece is not priced when cracked"
+    //get eyes on it
+    if (firedPotteryObject.cracked === true) {
+        firedPotteryObject.price = false
+    } //I've also tried .price = "" (as in no price just empty string)
+    //but it also failed.
+    else if (firedPotteryObject.weight >= 6) {
         firedPotteryObject.price = 40
-    } else {
+    } 
+    else {
         firedPotteryObject.price = 20
     }
+
 
     if (firedPotteryObject.cracked === false) {
         potteryToSell.push(firedPotteryObject)
